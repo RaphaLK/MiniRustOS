@@ -1,0 +1,3 @@
+[target. 'cfg(target_os = "linux")']
+rustflags = ["-C", "link-arg=-nostartfiles"]
+# I have a bash file to replace this, though this is better practice
