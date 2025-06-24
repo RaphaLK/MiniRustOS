@@ -11,5 +11,6 @@ fn panic(_info: &PanicInfo) -> ! {
 // Disable name mangling -- C Calling convention
 #[unsafe(no_mangle)]
 pub extern "C" fn _start() -> ! {
+    // Entry point function, named _start by default
     loop{}
 }
