@@ -5,7 +5,8 @@ use core::panic::PanicInfo;
 
 // Override panic handler
 #[panic_handler]
-fn panic(_info: &PanicInfo) -> ! {
+fn panic(info: &PanicInfo) -> ! {
+    println!("{}", info);
     loop {}
 }
 // static HELLO: &[u8] = b"Hello World";
@@ -14,5 +15,6 @@ fn panic(_info: &PanicInfo) -> ! {
 #[unsafe(no_mangle)]
 pub extern "C" fn _start() -> ! {
     println!("Hello World{}", "!");
+    panic!("Help!!");
     loop {}
 }
