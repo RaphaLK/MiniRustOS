@@ -82,11 +82,11 @@ impl Writer {
                     self.new_line();
                 }
 
-                let ROW = BUFFER_HEIGHT - 1;
-                let COL = self.column_position;
+                let row = BUFFER_HEIGHT - 1;
+                let col = self.column_position;
 
                 let color_code = self.color_code;
-                self.buffer.chars[ROW][COL].write(ScreenChar {
+                self.buffer.chars[row][col].write(ScreenChar {
                     ascii_character: byte,
                     color_code: color_code,
                 });
