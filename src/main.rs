@@ -13,17 +13,23 @@ fn panic(info: &PanicInfo) -> ! {
     println!("{}", info);
     loop {}
 }
+
 #[cfg(test)]
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     minirustos::test_panic_handler(info)
 }
+
 // static HELLO: &[u8] = b"Hello World";
 // Disable name mangling -- C Calling convention
 #[unsafe(no_mangle)]
 pub extern "C" fn _start() -> ! {
     println!("Hello World{}", "!");
 
+    minirustos::init();
+
+    x86_64::instructions::interrupts::int3();
+    
     #[cfg(test)]
     test_main();
     loop {}
