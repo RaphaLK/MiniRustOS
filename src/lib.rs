@@ -9,6 +9,9 @@
 pub mod serial;
 pub mod vga_buffer;
 pub mod interrupts;
+pub mod gdt;
+
+
 use core::panic::PanicInfo;
 
 // Interrupt handler
