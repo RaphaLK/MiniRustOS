@@ -16,6 +16,7 @@ use core::panic::PanicInfo;
 
 // Interrupt handler
 pub fn init() {
+  gdt::init();
   interrupts::init_idt();
 }
 pub trait Testable {
