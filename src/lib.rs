@@ -18,6 +18,8 @@ use core::panic::PanicInfo;
 pub fn init() {
   gdt::init();
   interrupts::init_idt();
+  unsafe { interrupts::PICS.lock().initialize(); }; // PIC Initialization
+  x86_64::instructions::interrupts::enable();
 }
 pub trait Testable {
     fn run(&self) -> ();
