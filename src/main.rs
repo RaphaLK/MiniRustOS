@@ -31,7 +31,10 @@ pub extern "C" fn _start() -> ! {
     #[cfg(test)]
     test_main();
     println!("It did not crash!");
-    loop {}
+    loop {
+        use minirustos::print;
+        print!("-")
+    }
 }
 
 #[test_case]
