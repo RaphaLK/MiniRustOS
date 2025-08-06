@@ -11,7 +11,7 @@ use minirustos::println;
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     println!("{}", info);
-    loop {}
+    minirustos::hlt_loop();
 }
 
 #[cfg(test)]
@@ -31,10 +31,7 @@ pub extern "C" fn _start() -> ! {
     #[cfg(test)]
     test_main();
     println!("It did not crash!");
-    loop {
-        use minirustos::print;
-        print!("-")
-    }
+    minirustos::hlt_loop();
 }
 
 #[test_case]
